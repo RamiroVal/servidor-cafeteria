@@ -38,7 +38,13 @@ router.post(
 	campVaidator,
 	usersPost
 );
-router.delete("/", usersDelete);
+router.delete(
+	"/:id",
+	check("id", "No es un id válido").isMongoId(),
+	check("id").custom(existeUsuarioPorId),
+	campVaidator,
+	usersDelete
+);
 router.patch("/", usersPatch);
 
 module.exports = router;
