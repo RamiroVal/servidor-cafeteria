@@ -6,6 +6,7 @@ const {
 	cargarArchivo,
 	actualizarImagen,
 	mostrarImagen,
+	actualizarImagenCloudinary,
 } = require("../controllers/uploads");
 const { validarArchivoSubir } = require("../middlewares/validar-archivo");
 const { coleccionesPermitidas } = require("../helpers/db-validators");
@@ -36,7 +37,8 @@ router.put(
 		),
 		campVaidator,
 	],
-	actualizarImagen
+	// actualizarImagen
+	actualizarImagenCloudinary
 );
 
 module.exports = router;
